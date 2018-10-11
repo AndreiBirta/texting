@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.XPath;
 using texting.languageServiceReference;
@@ -10,16 +11,61 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace texting
 {
-    class Program
+    public static class Programsss
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            ExtractExcelText();
+            //    var translatedText = GetXmlText();
+            //    var ok = true;
+            //    Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            //    while (ok)
+            //    {
+            //        var line = Console.ReadLine();
+            //        if (line.Equals("stop!!!")) ok = false;
+
+            //        var text = translatedText[line];
+            //        if (translatedText.ContainsKey(@line))
+            //        {
+            //            Console.ForegroundColor = ConsoleColor.Green;
+            //            text = translatedText[line];
+            //            Clipboard.SetText(text);
+            //            Console.WriteLine(text);
+            //        }
+            //        else
+            //        {
+            //            Console.ForegroundColor = ConsoleColor.Red;
+            //            Console.WriteLine("NO TRANSLATION FOUND!");
+            //        }
+            //        Console.ForegroundColor = ConsoleColor.White;
+            //    }
+            foreach (KeyValuePair<string, string> kvp in translatedText)
+            {
+                //textBox3.Text += ("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
+                Console.WriteLine(string.Format("Key = {0} \n Value = {1} \n\n\n", kvp.Key, kvp.Value));
+            }
+        }
+
+        public static Dictionary<string, string> translatedText = GetXmlText();
+
+        public static string GetText(string originalText)
+        {
+
+            if (translatedText.ContainsKey(originalText))
+            {
+                string text = translatedText[originalText];
+                return (text);
+            }
+            else
+            {
+                return ("NO TRANSLATION!");
+            }
         }
 
         private static void ExtractExcelText()
         {
-            string path = @"C:\Users\andrei.birta\Downloads\eldrador_original.xml";
+            string path = @"C:\Users\andrei.birta\Downloads\horseclub_original.xml";
             Excel.Application excelApplication = new Excel.Application();
             Excel.Workbook workBook = excelApplication.Workbooks.Open(path);
             Excel.Worksheet workSheet = workBook.Worksheets["Sheet1"];
@@ -32,10 +78,10 @@ namespace texting
 
         }
 
-        private static Dictionary<string, string> GetXmlText()
+        public static Dictionary<string, string> GetXmlText()
         {
 
-            string path = @"C:\Users\andrei.birta\Downloads\eldrador_FaraDiactritice.xml";
+            string path = @"C:\Users\andrei.birta\Downloads\horseclub_FaraDiactritice.xml";
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
 
@@ -53,7 +99,7 @@ namespace texting
                 try
                 {
                     if (i % 2 == 0)
-                        text.Add(tempText, node.InnerText);
+                        text.Add(@tempText, @node.InnerText);
                     else
                     {
                         tempText = node.InnerText;

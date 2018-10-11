@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "texting", "texting\texting.csproj", "{80CC73B2-6CB2-44CF-95D7-163272200B1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{E2DE4542-B31C-4FA7-A712-13C839B5F467}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{80CC73B2-6CB2-44CF-95D7-163272200B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80CC73B2-6CB2-44CF-95D7-163272200B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80CC73B2-6CB2-44CF-95D7-163272200B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2DE4542-B31C-4FA7-A712-13C839B5F467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2DE4542-B31C-4FA7-A712-13C839B5F467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2DE4542-B31C-4FA7-A712-13C839B5F467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2DE4542-B31C-4FA7-A712-13C839B5F467}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
